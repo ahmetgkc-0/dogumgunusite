@@ -1,15 +1,16 @@
 window.DATA={
- "name": "Canım Arkadaşım",
- "passHash": "d310c186b7dfcb7b2547aa5221027d6aa81ff545eb6f15b3841d21107ca38cef",
+ "name": "sena",
+ "passHash": "c2846baba3c1f3ea4a7205ffd7ba5f98badd8362fb168a2fdefd205efb71b82a",
  "notes": [
   {
-   "from": "Ayşe",
-   "text": "İyi ki doğdun! Hayatımızda olduğun için çok şanslıyız 🌸"
-  },
-  {
-   "from": "Annen",
-   "text": "Seni her gün daha çok seviyorum. Hep mutlu ol."
+   "from": "scs",
+   "text": "scascsa"
   }
  ],
- "media": []
+ "media": [
+  {
+   "f": "1794403128657_zihin-haritalama.jpg",
+   "c": "ssc"
+  }
+ ]
 };
