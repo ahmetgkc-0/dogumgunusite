@@ -47,5 +47,8 @@ window.DATA={
    "text": "senosss iyi ki dogmussunn iyi ki hayatımdasın yerin bende cok cok ayrı seni cok seviyorum guzelim benım ❤️❤️❤️"
   }
  ],
- "media": []
+ "media": [],
+ "music": {
+  "f": "1794775891125_muzik.mp3"
+ }
 };
