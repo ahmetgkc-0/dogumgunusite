@@ -41,6 +41,10 @@ window.DATA={
   {
    "from": "Annen",
    "text": "Canım kızım, iyi ki doğdun, iyi ki benim kızımsın.\nSenin varlığın hayatımın en güzel hediyesi.\nBazen sana bakıyorum ve ne ara büyüdün, ne ara bu kadar güzel bir insan oldun diye düşünüyorum.\nRabbim yolunu hep açık etsin, yüzünü hep güldürsün. Hayat karşına hep güzel insanlar, güzel fırsatlar çıkarsın. Ne yaşarsan yaşa, ne olursa olsun bil ki annen her zaman senin yanında. Seni çok seviyorum, hem de tarif edemeyeceğim kadar... İyi ki doğdun benim güzel kızım. Nice mutlu, sağlıklı, huzurlu yaşlarına.❤️"
+  },
+  {
+   "from": "Öykü",
+   "text": "senosss iyi ki dogmussunn iyi ki hayatımdasın yerin bende cok cok ayrı seni cok seviyorum guzelim benım ❤️❤️❤️"
   }
  ],
  "media": []
