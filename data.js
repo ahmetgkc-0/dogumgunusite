@@ -25,6 +25,22 @@ window.DATA={
   {
    "from": "Ecrin",
    "text": "İyi ki doğdun Senoşşş 💗 İyi ki hayatıma girmişsin, iyi ki tanımışım seni. Umarım yeni yaşın sana hayal ettiğin bütün güzellikleri, bolca mutluluğu ve unutulmaz anılar getirir. Her zaman yüzünün güldüğü, hiç üzülmediğin, çok güzel bir yaşın olsun. Nice birlikte güleceğimiz, eğleneceğimiz, anılar biriktireceğimiz yaşlara! Seni çok seviyorummm. İyi ki varsın,iyi ki doğdun bebeğimmm🎂💕"
+  },
+  {
+   "from": "Melike",
+   "text": "İyi ki doğdun benim güzel kızım! ❤️ Senin gibi tatlı, güzel kalpli, biraz da kendi bildiğini okuyan birine sahip olduğumuz için çok şanslıyız. 🥰 Yeni yaşın bol kahkahalı, bol eğlenceli, sürprizlerle dolu olsun. Hayat hep gönlünce olsun, yüzün hep gülsün. Hep böyle neşeli, ışıl ışıl ve kendin gibi özel kal. Unutma, yengen olarak seni çok seviyorum ama gerektiğinde sana karışma hakkımı da saklı tutuyorum! ❤️ Nice güzel yaşlarına, canım benim! İyi ki varsın! 😘🎂"
+  },
+  {
+   "from": "Baban",
+   "text": "Canım kızım, bazen kızsam, bazen söylenip dursam da sen benim kalbimin en güzel yerisin. Allah seni hep mutlu etsin, yolunu açık, ömrünü güzel eylesin. Kaç yaşına gelirsen gel, benim gözümde hep küçük kızımsın. İyi ki doğdun, iyi ki benim kızımsın. Seni çok seviyorum. ❤️"
+  },
+  {
+   "from": "Kardeşin",
+   "text": "Ablacığım, bazen atışsak da bazen birbirimize kızsak da sen benim için her zaman çok özelsin. İyi ki benim ablamsın, iyi ki varsın. Yüzün hep gülsün, hayat sana hep güzellikler getirsin. Seni çok seviyorum. İyi ki doğdun benim imaj maker’ım❤️"
+  },
+  {
+   "from": "Annen",
+   "text": "Canım kızım, iyi ki doğdun, iyi ki benim kızımsın.\nSenin varlığın hayatımın en güzel hediyesi.\nBazen sana bakıyorum ve ne ara büyüdün, ne ara bu kadar güzel bir insan oldun diye düşünüyorum.\nRabbim yolunu hep açık etsin, yüzünü hep güldürsün. Hayat karşına hep güzel insanlar, güzel fırsatlar çıkarsın. Ne yaşarsan yaşa, ne olursa olsun bil ki annen her zaman senin yanında. Seni çok seviyorum, hem de tarif edemeyeceğim kadar... İyi ki doğdun benim güzel kızım. Nice mutlu, sağlıklı, huzurlu yaşlarına.❤️"
   }
  ],
  "media": []
