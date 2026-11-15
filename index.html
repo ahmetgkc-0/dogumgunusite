@@ -35,3 +35,157 @@ body.alb .cn{display:none}
 .num small{font-size:20px;color:var(--soft)}
 .note{font-size:19px;line-height:1.65;margin:14px 0 22px;white-space:pre-wrap;min-height:90px}
 .from{font-family:'Pinyon Script',cursive;font-size:36px;color:var(--ink);line-height:1}
+.dots{display:flex;gap:6px;justify-content:center;margin:22px 0 20px;flex-wrap:wrap}
+.dots b{width:8px;height:3px;background:var(--line);transition:.3s}
+.dots b.on{background:var(--red);width:26px}
+.nav{display:flex;gap:10px;justify-content:center}
+/* Albüm: editoryal tasarım */
+.screen.wrap{position:relative;max-width:520px;text-align:left;padding-left:34px}
+.side{position:absolute;left:0;top:8px;writing-mode:vertical-rl;transform:rotate(180deg);font-family:'Playfair Display',serif;font-size:14px}
+.al{font-family:'Josefin Sans',sans-serif;font-weight:300;text-transform:uppercase;font-size:clamp(34px,11vw,56px);line-height:1.08}
+.g{display:grid;grid-template-columns:1fr 1fr;gap:20px 12px;margin:34px 0 30px}
+.g figure{cursor:pointer}
+.g figure:first-child{grid-column:1/3}
+.g .ph{position:relative;aspect-ratio:4/3;overflow:hidden;background:var(--blush)}
+.g figure:first-child .ph{aspect-ratio:16/10}
+.g img,.g video{width:100%;height:100%;object-fit:cover;display:block}
+.pl{position:absolute;inset:0;margin:auto;width:54px;height:54px;border-radius:50%;background:#fff;color:var(--ink);display:grid;place-items:center;font-size:16px;padding-left:3px}
+.g figcaption{font-family:'Josefin Sans',sans-serif;font-size:12px;line-height:1.4;margin-top:8px;color:var(--soft)}
+.lb{position:fixed;inset:0;z-index:50;background:rgba(66,43,35,.94);display:flex;align-items:center;justify-content:center;padding:16px}
+.lb img,.lb video{max-width:100%;max-height:88vh}
+.foot{position:fixed;bottom:calc(14px + env(safe-area-inset-bottom,0px));left:0;right:0;text-align:center;z-index:5}
+.foot button{background:none;border:0;color:var(--soft);font-family:'Oswald',sans-serif;letter-spacing:.2em;text-transform:uppercase;font-size:11px;cursor:pointer;opacity:.8}
+.adm{position:fixed;inset:0;z-index:40;background:var(--bg);overflow-y:auto;padding:calc(20px + env(safe-area-inset-top,0px)) 18px 60px}
+.adm .in{max-width:520px;margin:0 auto}
+.adm h2{font-family:'Anton',sans-serif;font-weight:400;text-transform:uppercase;color:var(--ink);font-size:28px}
+.adm h3{font-family:'Anton',sans-serif;font-weight:400;text-transform:uppercase;letter-spacing:.08em;color:var(--red);margin:24px 0 10px;font-size:16px}
+.adm input,.adm textarea{width:100%;font:inherit;color:var(--ink);background:var(--card);border:1px solid var(--line);border-radius:2px;padding:12px 14px;margin-bottom:8px}
+.row{display:flex;gap:10px;align-items:flex-start;background:var(--card);border:1px solid var(--line);padding:10px 12px;margin-bottom:8px;font-size:14px}
+.row span{flex:1;line-height:1.5}
+.x{background:none;border:0;cursor:pointer;font-size:18px;color:var(--red)}
+.top{display:flex;justify-content:space-between;align-items:center}
+#toast{position:fixed;top:calc(14px + env(safe-area-inset-top,0px));left:50%;transform:translateX(-50%);background:var(--ink);color:var(--bg);padding:10px 18px;font-size:14px;z-index:99;display:none;max-width:90vw}
+.lbi{max-width:100%;text-align:center}.lbc{color:#fff;margin-top:14px;font-size:15px;line-height:1.5;white-space:pre-wrap;font-family:'Josefin Sans',sans-serif}
+.g figcaption{white-space:pre-wrap}
+.mrow{display:flex;gap:10px;border:1px solid var(--line);padding:10px;margin-bottom:8px;background:var(--card)}
+.th{width:64px;height:64px;flex:none;background:var(--blush);display:grid;place-items:center;overflow:hidden;font-size:24px}
+.th img{width:100%;height:100%;object-fit:cover}
+.mc{flex:1;min-width:0}.mc textarea{margin:0!important}
+.fn{font-size:12px;color:var(--soft);overflow:hidden;text-overflow:ellipsis;white-space:nowrap;margin-bottom:6px}
+.mb{display:flex;flex-direction:column}
+.stbar{position:sticky;bottom:0;margin:24px -18px -60px;padding:12px 18px calc(12px + env(safe-area-inset-bottom,0px));background:var(--bg);border-top:1px solid var(--line);display:flex;gap:12px;align-items:center;justify-content:space-between;font-size:13px;line-height:1.4;color:var(--soft)}
+.mus{position:fixed;top:calc(12px + env(safe-area-inset-top,0px));right:14px;z-index:30;width:42px;height:42px;border-radius:50%;border:1px solid var(--ink);background:var(--bg);color:var(--ink);font-size:18px;cursor:pointer;display:none;place-items:center;padding:0}
+.mus.on{display:grid}
+.mus.off::after{content:"";position:absolute;width:26px;height:1.5px;background:var(--ink);transform:rotate(-45deg)}
+</style>
+</head>
+<body>
+<div class="cn tl"></div><div class="cn tr"></div><div class="cn bl"></div><div class="cn br"></div>
+<div class="blob b1"></div><div class="blob b2"></div>
+<div id="app"></div>
+<audio id="au" loop preload="none"></audio>
+<button class="mus" id="mus" aria-label="Müzik">♪</button>
+<div class="foot"><button id="admBtn">❦ Yönetim</button></div>
+<div id="toast"></div>
+<script>document.write('<script src="data.js?'+Date.now()+'"><\/script>')</script>
+<script>
+const D=JSON.parse(JSON.stringify(window.DATA));
+let view='cover',idx=0;
+const $=s=>document.querySelector(s),app=$('#app');
+const esc=s=>String(s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+const url=m=>'media/'+encodeURIComponent(m.f);
+const isV=f=>/\.(mp4|mov|webm|m4v)$/i.test(f);
+const sha=async s=>[...new Uint8Array(await crypto.subtle.digest('SHA-256',new TextEncoder().encode(s)))].map(x=>x.toString(16).padStart(2,'0')).join('');
+function toast(t,ms){const e=$('#toast');e.textContent=t;e.style.display='block';clearTimeout(toast.t);toast.t=setTimeout(()=>e.style.display='none',ms||3200)}
+const au=()=>$('#au');
+function setM(on){$('#mus').classList.toggle('off',!on)}
+function playMusic(){const a=au();if(D.music&&a.src){a.volume=.6;a.play().then(()=>setM(true)).catch(()=>setM(false))}}
+function music(){const a=au(),b=$('#mus');if(D.music){const s='media/'+encodeURIComponent(D.music.f);if(!a.src.endsWith(s))a.src=s;b.classList.add('on');setM(!a.paused)}else{a.pause();a.removeAttribute('src');b.classList.remove('on')}}
+$('#mus').onclick=()=>{const a=au();if(a.paused)playMusic();else{a.pause();setM(false)}};
+function render(){
+  const n=D.notes;
+  document.body.classList.toggle('alb',view==='album');scrollTo(0,0);
+  if(view==='cover'){
+    app.innerHTML=`<div class="screen"><div class="stack"><span class="scr">in her</span><span class="big red" style="font-size:clamp(90px,34vw,170px)">16 era</span></div><div class="emo">💞🪽</div><button class="btn" id="go">Notları Aç</button></div>`;
+    $('#go').onclick=()=>{playMusic();view=n.length?'notes':'album';idx=0;render()};
+  }else if(view==='notes'){
+    const x=n[idx],last=idx===n.length-1;
+    app.innerHTML=`<div class="screen"><div class="card"><div class="num">${String(idx+1).padStart(2,'0')}<small> / ${String(n.length).padStart(2,'0')}</small></div><p class="note">${esc(x.text)}</p><div class="from">${esc(x.from)}</div></div><div class="dots">${n.map((_,i)=>`<b class="${i===idx?'on':''}"></b>`).join('')}</div><div class="nav">${idx?'<button class="btn ghost" id="bk">← Geri</button>':''}<button class="btn" id="nx">${last?'Anı Albümü 📸':'Geç →'}</button></div></div>`;
+    $('#nx').onclick=()=>{if(last){view='album'}else idx++;render()};
+    if(idx)$('#bk').onclick=()=>{idx--;render()};
+  }else{
+    app.innerHTML=`<div class="screen wrap"><div class="side">${esc(D.name)}</div><h1 class="al">Bizim<br>anılarımız</h1>${D.media.length?`<div class="g">${D.media.map((m,i)=>`<figure data-i="${i}"><div class="ph">${isV(m.f)?`<video src="${url(m)}#t=0.1" muted playsinline preload="metadata"></video><span class="pl">▶</span>`:`<img src="${url(m)}" loading="lazy" alt="">`}</div>${m.c?`<figcaption>${esc(m.c)}</figcaption>`:''}</figure>`).join('')}</div>`:'<p class="sub" style="margin:30px 0">Albüm yakında dolacak ✨</p>'}<button class="btn ghost" id="re">↺ Baştan izle</button></div>`;
+    $('#re').onclick=()=>{view='cover';render()};
+    document.querySelectorAll('.g figure').forEach(el=>el.onclick=()=>{const m=D.media[el.dataset.i],lb=document.createElement('div');lb.className='lb';lb.innerHTML=`<div class="lbi">${isV(m.f)?`<video src="${url(m)}" controls autoplay playsinline></video>`:`<img src="${url(m)}" alt="">`}${m.c?`<p class="lbc">${esc(m.c)}</p>`:''}</div>`;lb.onclick=e=>{if(e.target===lb)lb.remove()};document.body.appendChild(lb)});
+  }
+}
+const cfg=()=>{try{return JSON.parse(localStorage.getItem('ghcfg')||'{}')}catch(e){return{}}};
+async function api(path,method,body){
+  const c=cfg();if(!c.repo||!c.token)throw new Error('GitHub bağlantısı yok. En alttaki "GitHub bağlantısı" kısmını doldur.');
+  const r=await fetch('https://api.github.com/repos/'+c.repo+'/contents/'+path,{method,headers:{Authorization:'Bearer '+c.token,Accept:'application/vnd.github+json'},body:body?JSON.stringify(body):undefined});
+  const j=await r.json().catch(()=>({}));if(!r.ok)throw new Error(j.message||('Hata '+r.status));return j}
+const b64=f=>new Promise(res=>{const r=new FileReader();r.onload=()=>res(r.result.split(',')[1]);r.readAsDataURL(f)});
+async function prep(f){
+  if(f.type.startsWith('image/')&&f.type!=='image/gif'){
+    try{const bm=await createImageBitmap(f),s=Math.min(1,1600/Math.max(bm.width,bm.height)),c=document.createElement('canvas');c.width=Math.round(bm.width*s);c.height=Math.round(bm.height*s);c.getContext('2d').drawImage(bm,0,0,c.width,c.height);const bl=await new Promise(r=>c.toBlob(r,'image/jpeg',.85));if(bl)return{blob:bl,ext:'jpg'}}catch(e){}
+  }
+  return{blob:f,ext:(f.name.split('.').pop()||'bin').toLowerCase().replace(/[^a-z0-9]/g,'')}
+}
+let stTxt='',stBad=false,chain=Promise.resolve();
+function setSt(t,bad){stTxt=t;stBad=!!bad;const e=document.querySelector('#st');if(e){e.textContent=t;e.style.color=bad?'#b3261e':'var(--soft)'}if(bad)toast(t,6000)}
+function save(){
+  if(!cfg().token){setSt('⚠ Kaydedilmedi: GitHub bağlantısı yok. En alttan bağlan.',1);return chain}
+  setSt('⏳ Kaydediliyor…');
+  chain=chain.then(async()=>{try{
+    const cur=await api('data.js?t='+Date.now(),'GET');
+    await api('data.js','PUT',{message:'Site güncellendi',content:btoa(unescape(encodeURIComponent('window.DATA='+JSON.stringify(D,null,1)+';'))),sha:cur.sha});
+    setSt('✓ Kaydedildi. Herkese yansıması yaklaşık 1 dakika sürer.')}catch(er){setSt('⚠ Kaydedilemedi: '+er.message,1)}});
+  return chain}
+function openAdmin(){
+  const o=document.createElement('div');o.className='adm';document.body.appendChild(o);
+  const gate=()=>{o.innerHTML=`<div class="in"><div class="top"><h2>Yönetim</h2><button class="btn ghost" id="cl" style="padding:8px 16px">Kapat</button></div><h3>Şifre</h3><input type="password" id="ps" placeholder="Yönetim şifresi"><button class="btn" id="ok" style="width:100%">Giriş</button></div>`;
+    o.querySelector('#cl').onclick=()=>o.remove();
+    o.querySelector('#ok').onclick=async()=>{if(await sha(o.querySelector('#ps').value)===D.passHash)panel();else toast('Şifre yanlış')}};
+  const panel=()=>{const c=cfg(),sc=o.scrollTop;o.innerHTML=`<div class="in"><div class="top"><h2>Yönetim</h2><button class="btn ghost" id="cl" style="padding:8px 16px">Kapat</button></div>
+  <p class="sub" style="font-size:13px;margin-top:10px">Yaptığın her değişiklik otomatik kaydedilir (GitHub bağlıysa). Durumu en alttaki çubukta görürsün.</p>
+  <h3>Kutlanan kişi</h3><input id="nm" value="${esc(D.name)}">
+  <h3>Notlar (${D.notes.length})</h3>${D.notes.map((x,i)=>`<div class="row"><span><b>${esc(x.from)}:</b> ${esc(x.text)}</span><button class="x" data-n="${i}">✕</button></div>`).join('')}
+  <input id="nf" placeholder="Kim yazdı?"><textarea id="nt" rows="3" placeholder="Not…"></textarea><button class="btn ghost" id="an" style="width:100%">+ Not ekle</button>
+  <h3>Albüm (${D.media.length})</h3>${D.media.map((m,i)=>`<div class="mrow"><div class="th">${isV(m.f)?'🎬':`<img src="${url(m)}" alt="" onerror="this.remove()">`}</div><div class="mc"><div class="fn">${esc(m.f)}</div><textarea data-c="${i}" rows="2" placeholder="Yanına yazı (isteğe bağlı)">${esc(m.c||'')}</textarea></div><div class="mb">${i?`<button class="x" data-u="${i}">↑</button>`:''}<button class="x" data-m="${i}">✕</button></div></div>`).join('')}
+  <input type="file" id="fl" accept="image/*,video/*" multiple>
+  <p class="sub" style="font-size:12px;margin:0">Fotoğraflar otomatik küçültülür. Videolar <b>mp4</b> ve en fazla <b>30 MB</b> olmalı. ↑ ile sıralamayı değiştirirsin, ilk sıradaki büyük görünür.</p>
+  <h3>Müzik</h3>${D.music?`<div class="row"><span>🎵 ${esc(D.music.f)}</span><button class="x" id="dm">✕</button></div>`:'<p class="sub" style="font-size:13px;margin:0 0 8px">Henüz müzik yok.</p>'}<input type="file" id="fm" accept="audio/*"><p class="sub" style="font-size:12px;margin:0">mp3, en fazla 30 MB. “Notları Aç” tuşuna basılınca çalmaya başlar, sağ üstteki ♪ ile kapatılır.</p>
+  <h3>Şifreyi değiştir</h3><input id="pw" type="password" placeholder="Yeni şifre"><button class="btn ghost" id="cp" style="width:100%">Şifreyi değiştir</button>
+  <h3>GitHub bağlantısı ${c.token?'✓':''}</h3>
+  <input id="gr" placeholder="kullaniciadi/depoadi" value="${esc(c.repo||'')}"><input id="gt" type="password" placeholder="${c.token?'Token kayıtlı (değiştirmek için yaz)':'Erişim tokeni'}">
+  <button class="btn ghost" id="gs" style="width:100%">Bağlantıyı kaydet</button>
+  <div class="stbar"><span id="st"></span><button class="btn" id="now" style="padding:10px 16px;font-size:13px">Şimdi kaydet</button></div></div>`;
+  o.scrollTop=sc;setSt(stTxt,stBad);
+  const q=s=>o.querySelector(s);
+  q('#cl').onclick=()=>{o.remove();music();render()};
+  q('#nm').onchange=e=>{D.name=e.target.value.trim()||D.name;save()};
+  q('#now').onclick=()=>save();
+  o.querySelectorAll('[data-n]').forEach(b=>b.onclick=()=>{D.notes.splice(b.dataset.n,1);panel();save()});
+  o.querySelectorAll('[data-m]').forEach(b=>b.onclick=()=>{D.media.splice(b.dataset.m,1);panel();save()});
+  o.querySelectorAll('[data-u]').forEach(b=>b.onclick=()=>{const i=+b.dataset.u;[D.media[i-1],D.media[i]]=[D.media[i],D.media[i-1]];panel();save()});
+  o.querySelectorAll('[data-c]').forEach(t=>t.onchange=()=>{const m=D.media[t.dataset.c],v=t.value.trim();if(v)m.c=v;else delete m.c;save()});
+  q('#an').onclick=()=>{const t=q('#nt').value.trim();if(!t){toast('Önce notu yaz');return}D.notes.push({from:q('#nf').value.trim()||'Biri',text:t});toast('Not eklendi ✓');panel();save()};
+  const dm=q('#dm');if(dm)dm.onclick=()=>{delete D.music;panel();save()};
+  q('#fm').onchange=async e=>{const f=e.target.files[0];if(!f)return;if(f.size>30*1048576){setSt('⚠ Müzik dosyası çok büyük (30 MB üstü).',1);return}
+    try{setSt('⏳ Müzik yükleniyor…');const ext=(f.name.split('.').pop()||'mp3').toLowerCase().replace(/[^a-z0-9]/g,''),name=Date.now()+'_muzik.'+ext;await api('media/'+name,'PUT',{message:'Müzik eklendi',content:await b64(f)});D.music={f:name};panel();await save()}catch(er){setSt('⚠ Müzik yüklenemedi: '+er.message,1)}};
+  q('#cp').onclick=async()=>{const p=q('#pw').value;if(!p){toast('Yeni şifreyi yaz');return}D.passHash=await sha(p);toast('Şifre değişti');save()};
+  q('#gs').onclick=()=>{const r=q('#gr').value.trim().replace(/^https?:\/\/github\.com\//,''),t=q('#gt').value.trim()||c.token||'';try{localStorage.setItem('ghcfg',JSON.stringify({repo:r,token:t}));setSt('✓ GitHub bağlantısı kaydedildi');panel()}catch(e){setSt('⚠ Tarayıcı kaydetmeye izin vermedi',1)}};
+  q('#fl').onchange=async e=>{const fs=[...e.target.files];let k=0,ok=0;
+    for(const f of fs){k++;
+      if(f.size>30*1024*1024){setSt('⚠ "'+f.name+'" çok büyük ('+Math.round(f.size/1048576)+' MB). 30 MB altına indir (kısalt ya da sıkıştır).',1);continue}
+      try{setSt(`⏳ Yükleniyor ${k}/${fs.length}: ${f.name}`);const p=await prep(f),base=f.name.replace(/\.[^.]*$/,'').replace(/[^a-zA-Z0-9_-]/g,'_').slice(0,30)||'dosya',name=Date.now()+'_'+base+'.'+p.ext;
+        await api('media/'+name,'PUT',{message:'Dosya eklendi',content:await b64(p.blob)});D.media.push({f:name});ok++}
+      catch(er){setSt('⚠ "'+f.name+'" yüklenemedi: '+er.message,1)}}
+    if(ok){panel();await save()}else panel()};};
+  gate();
+}
+$('#admBtn').onclick=openAdmin;
+music();render();
+</script>
+</body>
+</html>
