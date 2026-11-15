@@ -4,10 +4,12 @@ window.DATA={
  "notes": [],
  "media": [
   {
-   "f": "1794767906939_30777.mp4"
+   "f": "1794767906939_30777.mp4",
+   "c": "Merhaba ydiehsbjsjsnnss"
   },
   {
-   "f": "1794767925413_30586.jpg"
+   "f": "1794767925413_30586.jpg",
+   "c": "Mebrjejsnsjsjjzjskdjdhdhshjs"
   }
  ]
 };
