@@ -21,6 +21,10 @@ window.DATA={
   {
    "from": "Elif",
    "text": "İyi ki varsın hayatımmmm. 16 yaşın sana senin kadar güzelll ve neşeli bir yıl ve istediğin her şeyi getirsin. Tüm anlarımda her zaman her saniye benimle olduğun için ne kadar mutlu olduğumu anlatamam. İyi anımda kötü anımda her zaman yanımda olmana ne kadar çooook teşekkür etsem az. Seninle büyümek benim için cidden büyük bi nimet. Yanımda örnek aldığım bazen örnek olduğum ne olurda olsun yanımda olacak olduğunu bilmenin rahatlığı senin sayende oluyor Hayatımdaki yerini kapladığın alanı küçüklüğümüzü ve ilerdeki zamanı sana bu kelimelerle anlatamam ama iyi ki varsınnnn ve bundan sonraki zamanlarda da umarım hep beraber oluruz. İyi ki doğdun hayatım iyi ki varsın ❤️"
+  },
+  {
+   "from": "Ecrin",
+   "text": "İyi ki doğdun Senoşşş 💗 İyi ki hayatıma girmişsin, iyi ki tanımışım seni. Umarım yeni yaşın sana hayal ettiğin bütün güzellikleri, bolca mutluluğu ve unutulmaz anılar getirir. Her zaman yüzünün güldüğü, hiç üzülmediğin, çok güzel bir yaşın olsun. Nice birlikte güleceğimiz, eğleneceğimiz, anılar biriktireceğimiz yaşlara! Seni çok seviyorummm. İyi ki varsın,iyi ki doğdun bebeğimmm🎂💕"
   }
  ],
  "media": []
